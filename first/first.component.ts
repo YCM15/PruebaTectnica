@@ -69,6 +69,10 @@ export class FirstComponent implements OnInit {
   }
 
   mensaje(){
+    // const url='https://747a-190-5-111-244.ngrok.io/api/test';
+    // this.Telefonos.forEach(t => {
+    //   this.http.post(url, {}).subscribe(res=>console.log(res))
+    // })
     this.respuestas = this.Telefonos.map(t => {
       return {
         telefono: t,
