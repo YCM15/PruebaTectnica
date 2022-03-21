@@ -1,0 +1,57 @@
+<div class="container">
+    <div class="row">
+         <div class="col-md-6">
+             <span>Telefono</span>
+             <hr>
+             <div class="d-flex">
+                 <input type="text" class="form-control" [(ngModel)]="telefono">
+                 <button class="btn btn-primary" (click)="addTelefono()">+</button>
+             </div>
+             <span>Mensaje</span>
+             <hr>
+             <span *ngIf="!isNotificacion">
+                Para su clave {{"{v1}"}}, se ha registrado la gestión {{"{v2}"}} en las oficinas principales
+             </span>
+             <span *ngIf="isNotificacion">
+                Se ha realizado la facturación del mes de marzo para su clave {{"{v1}"}}, su consumo es de {{"{v2}"}} kWh el monto a pagar es de Lps {{"{v3}"}} fecha máxima de pago {{"{v3}"}}
+             </span>
+             <div class="d-flex justify-content-between mt-3">
+                 <button class="btn btn-warning" (click)="Notificacion()">Notificacion</button>
+                 <button class="btn btn-success" (click)="fecha()">Fecha</button>
+                 <button class="btn btn-primary" (click)="mensaje()">Enviar Mensaje</button>
+             </div>
+         </div>
+         <div class="col-md-6">
+             <table class="table">
+                 <thead>
+                   <tr>
+                     <th scope="col">Telefono</th>
+                     <th scope="col">Mensaje</th>
+                   </tr>
+                 </thead>
+                 <tbody>
+                   <tr *ngFor="let item of Tabla">
+                     <th>{{item.telefono}}</th>
+                     <td>{{item.notificacion}}</td>
+                   </tr>
+                 </tbody>
+               </table>
+         </div>
+         <div class="col-md-6">
+            <table class="table" *ngIf="respuestas.length>0">
+                <thead>
+                  <tr>
+                    <th scope="col">Telefono</th>
+                    <th scope="col">Respuestas</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of respuestas">
+                    <th >{{item.telefono}}</th>
+                    <td >{{item.Result}}</td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+     </div>
+
